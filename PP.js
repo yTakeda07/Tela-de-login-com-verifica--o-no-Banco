@@ -13,6 +13,23 @@
       });
     })
 
+
+    window.onload = function() {
+        $.ajax({
+            url: "carregada.php",
+            type: "POST",
+            data: { acao: "verificar" },
+         dataType: "html"
+ }).done(function(resp) {
+    $(".caixa").html(resp); 
+}).fail(function(jqXHR, textStatus) {
+    alert("Falha na requisição AJAX: " + textStatus);
+}).always(function() {
+    console.log("Requisição AJAX registro concluída");
+});
+    };
+
+
     function clicou(botao){
         var nome = $("#NM_PRODUTO").val();
         
@@ -31,8 +48,10 @@
         });
     }
 
-    function apagar(botao){
-        var nome = $("#NM_PRODUTO").val();
+    function apagar(apagado){
+
+
+        var nome = apagado.className;
 
         $.ajax({
             url: "excluir_produto.php",

@@ -2,14 +2,12 @@
 
 include 'conecta.php';
 
-$nome = $_POST['nome'];
 
 
-    $inserir = "INSERT into produto values(null,'".$nome."');";
+
+
     $exibir = "SELECT NM_PRODUTO, CD_PRODUTO from produto;";
-    $delete = "DELETE FROM produto WHERE NM_PRODUTO = '".$nome."';";
-    $conn->query($delete);
-    echo "<br>".$nome." foi excluido da lista";
+    // $conn->query($inserir);
 
 echo "<br><br>";    
 $stmt = $conn->query($exibir);

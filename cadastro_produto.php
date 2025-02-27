@@ -18,7 +18,10 @@ if ($stmt->rowCount() > 0) {
     // Fetch and display each row
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "Codigo: " . $row['CD_PRODUTO'] . "<br>";
-        echo "Nome: " . $row['NM_PRODUTO'] . "<br><br>";
+        echo "Nome: " . $row['NM_PRODUTO'] . "
+        <input type='button' onclick='apagar(this)' class='".$row['NM_PRODUTO']."' value='Apagar'>
+        <input type='button' onclick='editar(this)' class='".$row['NM_PRODUTO']."' value='Editar'>
+       <br><br>";
         
 
     }
